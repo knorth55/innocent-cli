@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+import twitter
+
+# set your own keys
+## consumer key
+CK = ''
+## consumer secret
+CS = ''
+## access token key
+AK = ''
+## access token secret
+AS = ''
+
+if __name__ == '__main__':
+    api = twitter.Api(
+            consumer_key=CK,
+            consumer_secret=CS,
+            access_token_key=AK,
+            access_token_secret=AS
+            )
+
+    post_text = u''
+    i = 0
+    while True:
+        post_text = post_text + u'\U0001f607'
+        i += 1
+        try:
+            status = api.PostUpdate(post_text)
+            break
+        except:
+            continue
+    print(u'Post Update: {0}'.format(post_text))
+
